@@ -16,3 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/list_video',[App\Http\Controllers\Video::class,'fetch']);
+Route::post('/insert_video',[App\Http\Controllers\Video::class,'insert'])->name('insert.file');
+Route::patch('/video/update/{id}', [App\Http\Controllers\Video::class,'update'])->name('video.update');
+Route::get('/video/edit/{id}', [App\Http\Controllers\Video::class,'edit'])->name('video.edit');
+Route::get('/video/add', [App\Http\Controllers\Video::class,'add'])->name('video.add');
+Route::delete('/video/delete/{id}', [App\Http\Controllers\Video::class,'destroy'])->name('video.destroy');
