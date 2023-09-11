@@ -13,10 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('list_video');
+// });
 
+Route::get('/',[App\Http\Controllers\Video::class,'fetch']);
 Route::get('/list_video',[App\Http\Controllers\Video::class,'fetch']);
 Route::post('/insert_video',[App\Http\Controllers\Video::class,'insert'])->name('insert.file');
 Route::patch('/video/update/{id}', [App\Http\Controllers\Video::class,'update'])->name('video.update');
